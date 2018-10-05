@@ -55,10 +55,12 @@ table(warlpiri$CaseMarking)
 dplyr::count(warlpiri, CaseMarking, WordOrder)
 proportions_by_WO <- warlpiri %>%  dplyr::select(CaseMarking, WordOrder)
 proportions_by_WO <- proportions_by_WO %>% filter(CaseMarking == "ergative")
+View(proportions_by_WO)
 
 dplyr::count(warlpiri, CaseMarking, OvertnessOfObject)
 proportions_by_ovObject <- warlpiri %>%  dplyr::select(CaseMarking, OvertnessOfObject)
 proportions_by_ovObject <- proportions_by_ovObject %>% filter(CaseMarking == "ergative")
+
 
 dplyr::count(warlpiri, CaseMarking, AnimacyOfObject)
 proportions_by_animObj <-  warlpiri %>% dplyr::select(CaseMarking, AnimacyOfObject)
@@ -66,7 +68,7 @@ proportions_by_animObj <- proportions_by_animObj %>% filter(CaseMarking == "erga
 
 # create plots in ggplot2 (with lines or bars)  from each of the data.frames from the previous step
 
-ggplot(proportions_by_WO, aes(CaseMarking, WordOrder)) + geom_line()
+ggplot(proportions_by_WO, aes(CaseMarking, WordOrder)) + geom_jitter()
 
 ggplot(proportions_by_ovObject, aes(CaseMarking, OvertnessOfObject)) + geom_jitter()
 
