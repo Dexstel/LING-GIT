@@ -23,11 +23,11 @@ x <- as.character(x)
 
 # load the 'warlpiri' data.frame from the package 'languageR'
 
-data("warlpiri")
+data("warlpiri")  ### library(languageR) (p) data(warlpiri)
 
 # display the first 3 lines of the data.frame
 
-head(warlpiri)
+head(warlpiri) ### head(warlpiri, 3)
 
 # look up the meaning of the various columns in the data.frame
 
@@ -39,16 +39,25 @@ nrow(warlpiri)
 
 # find out which values can occur in the column which indicates the presence of ergative case marking
 
-levels(warlpiri$CaseMarking)
+levels(warlpiri$CaseMarking)   ##unique(warlpiri$CaseMarking)
 
 # determine the overall frequency of ergative case marking in the data set
 
-table(warlpiri$CaseMarking)
+table(warlpiri$CaseMarking)  #table(warlpiri$CaseMarking, warlpiri$WordOrder)
+summary(warlpiri$CaseMarking)
+
+
+###with(warlpiri, {
+###  table(CaseMarking, WordOrder)
+###)}
+
 
 ## In *separate commands*, determine the frequency of ergative case marking as a function of the variables listed
 ## below, and please save the results in the specified data frames. Inspect the data frames with View() to make
 ## sure that the results makes sense.
 # ... (i) word order (save in data frame called 'proportions_by_WO')
+### proportions_by_WO <- warlpiri %>% group_by(WordOrder)%>%
+ 
 # ... (ii) overtness of object  (save in data frame called 'proportions_by_ovObject')
 # ... (iii) animacy of the object (save in data frame called 'proportions_by_animObj')
 
